@@ -1,24 +1,26 @@
 # Least-Recently Used (LRU) Cache Demo
 
-A NestJS project to demo
+LRU Cache Demo is a NestJS server side application that fetches and caches
+GitHub user profiles using
 the [LRU Cache library](https://github.com/saaniaki/LruCache).
 
 An instance of this repository has been deployed to
-[lrucache.tk](https://lrucache.tk/), please give it a visit! :bowtie:
+[lrucache.tk](https://lrucache.tk/), please give it a visit! :bowtie: Please 
+late a look at the endpoints below to start using the application.
 
 ## Endpoints
 
-* Health:
+* Checks the application health:
     * `GET /`
-* Re-instantiates the cache instance:
-    * `POST /re-instantiate`
-    * Body: `{ capacity: <a positive integer>}`
-* Getting a GitHib profile and caches it:
+* Gets a GitHib profile and caches it:
     * `GET /:username`
 * Removes a GitHib profile from the cache:
     * `DELETE /:username`
 * Resets the cache instance:
     * `POST /reset`
+* Re-instantiates the cache instance:
+  * `POST /re-instantiate`
+  * Body: `{ capacity: <a positive integer>}`
 
 ## Running the app
 
