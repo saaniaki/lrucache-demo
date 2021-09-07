@@ -1,20 +1,24 @@
 # Least-Recently Used (LRU) Cache Demo
 
-A NestJS project to demo the [LRU Cache library](https://github.com/saaniaki/LruCache).
+A NestJS project to demo
+the [LRU Cache library](https://github.com/saaniaki/LruCache).
+
+An instance of this repository has been deployed to
+[lrucache.tk](https://lrucache.tk/), please give it a visit! :bowtie:
 
 ## Endpoints
 
 * Health:
-  * `GET /`
+    * `GET /`
 * Re-instantiates the cache instance:
-  * `POST /re-instantiate`
-  * Body: `{ capacity: <a positive integer>}`
+    * `POST /re-instantiate`
+    * Body: `{ capacity: <a positive integer>}`
 * Getting a GitHib profile and caches it:
-  * `GET /:username`
+    * `GET /:username`
 * Removes a GitHib profile from the cache:
-  * `DELETE /:username`
+    * `DELETE /:username`
 * Resets the cache instance:
-  * `POST /reset`
+    * `POST /reset`
 
 ## Running the app
 
