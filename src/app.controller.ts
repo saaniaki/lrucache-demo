@@ -1,4 +1,12 @@
-import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  NotFoundException,
+  Param,
+  Post,
+} from '@nestjs/common';
 import { AppService } from './app.service';
 import { ReInstantiateDto } from './data-transfer-object/re-instantiate.dto';
 import { SuccessDto } from './data-transfer-object/success.dto';
@@ -24,10 +32,16 @@ export class AppController {
   public async getGitHubUser(
     @Param('username') username: string,
   ): Promise<SuccessDto> {
-    return new SuccessDto(
-      `User with username '${username}' has been fetched and cached successfully.`,
-      await this.appService.fetchAndCacheGitHubUser(username),
-    );
+    try {
+      return new SuccessDto(
+        `User with username '${username}' has been fetched and cached successfully.`,
+        await this.appService.fetchAndCacheGitHubUser(username),
+      );
+    } catch (e) {
+      throw new NotFoundException(
+        `User with username '${username}' has been found.`,
+      );
+    }
   }
 
   @Delete(':username')
